@@ -1,4 +1,4 @@
-package Golang
+package main
 
 import "net"
 import "fmt"
@@ -13,6 +13,8 @@ func main() {
 
 	// connect to this socket
 	conn, _ := net.Dial("tcp", "127.0.0.1:6969")
+	// will listen for message to process ending in newline (\n)
+	// output message received
 	pseudo := bufio.NewReader(os.Stdin)
 	fmt.Print("User Name: ")
 	user, _ := pseudo.ReadString('\n')
@@ -24,6 +26,7 @@ func main() {
 	io.WriteString(h, password)
 	auth := (string(h.Sum(nil)))
 	fmt.Fprintf(conn, auth)
+
 
 	//for {
 	//	reader := bufio.NewReader(os.Stdin)

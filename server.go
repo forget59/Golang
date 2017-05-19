@@ -1,9 +1,13 @@
-package Golang
+package main
 
 import "net"
 import "fmt"
 import "bufio"
-import "strings" // only needed below for sample processing
+import (
+	"strings"
+	"math/rand"
+	"strconv"
+) // only needed below for sample processing
 
 func main() {
 
@@ -15,9 +19,10 @@ func main() {
 
 	// accept connection on port
 	conn, _ := ln.Accept()
+	rand := strconv.Itoa(rand.Intn(1000000000))
 
 	// demander authentification
-
+	fmt.Print(rand + "\n")
 	// run loop forever (or until ctrl-c)
 		// will listen for message to process ending in newline (\n)
 		message, _ := bufio.NewReader(conn).ReadString('\n')
