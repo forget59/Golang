@@ -11,7 +11,6 @@ func main() {
 
 	// listen on all interfaces
 	ln, _ := net.Listen("tcp", ":6969")
-
 	ln.Addr().Network()
 
 	// accept connection on port
